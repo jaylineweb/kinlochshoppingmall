@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theater Section</title>
+    <style>
+        *{margin:0;padding:0;}
+        .theater-section {
+            padding: 20px;
+            background-color: #f9f9f9;
+            text-align: center; /* 가운데 정렬 */
+        }
+
+        .theater-card {
+            display: inline-block; /* 카드들이 옆으로 나란히 정렬되도록 */
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px; /* 카드의 너비 설정 */
+        }
+
+        .theater-card h3 {
+            margin-top: 0;
+        }
+
+        .theater-card p {
+            margin: 10px 0; /* 위아래 여백 설정 */
+        }
+
+        .theater-card button {
+            background-color: #1E90FF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .theater-card button:hover {
+            background-color: #FFA500;
+        }
+
+    </style>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c8fbcb1ded1ff82a6c428d8f4f76f552"></script>
+</head>
+<body>
+    <div class="theater-section">
+        <h2>Theaters (상영관)</h2>
+        <div class="theater-card">
+            <h3>서울점</h3>
+            <p>주소: 서울특별시 강남구 역삼동 123-45</p>
+            <p>연락처: 02-123-4567</p>
+            <p>상영관 수: 10</p>
+            <p>제공 서비스: IMAX, 3D, 4DX</p>
+            <button>티켓 예약하기</button>
+        </div>
+        <div id="map" style="height: 400px; width: 100%; margin-top: 20px;"></div>
+    </div>
+
+    <script>
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        mapOption = {
+            center: new kakao.maps.LatLng(37.4979, 127.0276), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };
+
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+    // 마커가 표시될 위치입니다
+    var markerPosition  = new kakao.maps.LatLng(37.4979, 127.0276);
+
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        position: markerPosition
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+    </script>
+
+</body>
+</html>
